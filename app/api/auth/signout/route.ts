@@ -2,10 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createMiddlewareClient, isSupabaseConfigured } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
-  const url = new URL(request.url);
-  const redirect = url.clone();
-  redirect.pathname = '/login';
-  redirect.search = '';
+  const redirect = new URL('/login', request.url);
   const response = NextResponse.redirect(redirect, { status: 303 });
 
   if (isSupabaseConfigured()) {

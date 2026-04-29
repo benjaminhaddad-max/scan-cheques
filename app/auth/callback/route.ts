@@ -6,9 +6,7 @@ export async function GET(request: NextRequest) {
   const code = url.searchParams.get('code');
   const next = url.searchParams.get('next') || '/cheques';
 
-  const redirectUrl = url.clone();
-  redirectUrl.pathname = next;
-  redirectUrl.search = '';
+  const redirectUrl = new URL(next, request.url);
   const response = NextResponse.redirect(redirectUrl);
 
   if (!isSupabaseConfigured() || !code) {
