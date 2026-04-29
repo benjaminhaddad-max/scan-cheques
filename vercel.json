@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "app/api/ocr/process-pending/route.ts": {
+      "maxDuration": 300
+    },
+    "app/api/ocr-gpt/route.ts": {
+      "maxDuration": 300
+    },
+    "app/api/ocr/upload-zip/route.ts": {
+      "maxDuration": 120
+    },
+    "app/api/ocr/upload/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}
